@@ -13,6 +13,6 @@ app.use(Router);
 //PORT = process.env.PORT || 5000; //process.env.PORT: because when we deploi the server moste likly isn't going to run it on port 5000 becous it has a port numbr "for my local serve 3000"
 
 //app.listen(PORT, () => console.log('server started on port ${PORT}')); // to run a web server
-app.listen(8000, function() {
+app.listen(3000, function() {
     console.log("App started in port 8000");
 })
