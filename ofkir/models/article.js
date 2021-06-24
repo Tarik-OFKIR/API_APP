@@ -1,14 +1,11 @@
 'use strict';
-const {
-    Model
-} = require('sequelize');
+const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
     class Article extends Model {
-
         static associate(models) {
             Article.belongsTo(models.User)
-            Article.hasMany(models.comment)
-            Article.belongsToMany(models.tag, { through: 'ArticleTage' })
+            Article.hasMany(models.Comment)
+            Article.belongsToMany(models.Tag, { through: 'ArticleTags' })
         }
     };
     Article.init({
@@ -20,11 +17,10 @@ module.exports = (sequelize, DataTypes) => {
         published: {
             type: DataTypes.BOOLEAN,
             defaultValue: true
-        }
+        },
     }, {
         sequelize,
         modelName: 'Article',
-
     });
     return Article;
 };
